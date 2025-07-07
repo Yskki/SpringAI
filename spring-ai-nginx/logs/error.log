@@ -1,0 +1,24 @@
+2025/03/06 13:15:56 [emerg] 53804#65916: CreateFile() "D:\课程资料\SpringAI\资料\spring-ai-nginx/conf/nginx.conf" failed (1113: No mapping for the Unicode character exists in the target multi-byte code page)
+2025/03/06 13:16:43 [emerg] 76508#58704: CreateFile() "D:\课程资料\SpringAI\资料\spring-ai-nginx/conf/nginx.conf" failed (1113: No mapping for the Unicode character exists in the target multi-byte code page)
+2025/03/06 13:17:17 [warn] 123476#82912: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:17:17 [warn] 105984#76456: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:17:50 [warn] 122948#56388: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:17:53 [warn] 112116#118700: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:17:56 [warn] 34236#42376: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:18:05 [warn] 36760#81752: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 13:18:05 [warn] 104188#17732: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 19:57:21 [error] 104188#62896: *11 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/06 20:00:04 [error] 104188#62896: *14 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/06 20:00:39 [error] 104188#62896: *14 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/06 20:00:41 [error] 104188#62896: *14 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/06 20:21:13 [warn] 49788#22120: conflicting server name "localhost" on 0.0.0.0:5173, ignored
+2025/03/06 20:21:13 [notice] 49788#22120: signal process started
+2025/03/07 09:14:59 [error] 120140#20836: *1 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/07 10:23:25 [error] 120140#20836: *14 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/07 10:36:28 [error] 120140#20836: *19 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/07 10:39:39 [error] 120140#20836: *22 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/07 10:53:59 [notice] 85168#14396: signal process started
+2025/03/07 14:43:06 [error] 26292#29188: *6 CreateFile() "D:\lesson\spring-ai-nginx/html/chat-pdf" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /chat-pdf HTTP/1.1", host: "localhost:5173"
+2025/03/07 14:46:14 [error] 26292#29188: *13 CreateFile() "D:\lesson\spring-ai-nginx/html/ai-chat" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /ai-chat HTTP/1.1", host: "localhost:5173"
+2025/03/07 14:46:46 [notice] 23132#98960: signal process started
+2025/03/14 11:01:24 [notice] 22836#22840: signal process started

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-ai
+  ai:
+    openai:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      api-key: sk-a1bbb27c118e445e9926e49c1ccdbaf7
+      chat:
+        options:
+          model: deepseek-r1
+          temperature: 0.8 #????????????????
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: debug
+    com.itheima.ai : debug

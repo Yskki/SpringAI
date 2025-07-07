@@ -1,0 +1,1 @@
+import{_ as t}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as e,o as r,a as s}from"./index-yHA_Ioyc.js";const a={},c={class:"comfort-simulator"};function n(_,o){return r(),e("div",c,o[0]||(o[0]=[s("h1",null,"哄哄模拟器",-1)]))}const l=t(a,[["render",n],["__scopeId","data-v-2c63f34b"]]);export{l as default};
