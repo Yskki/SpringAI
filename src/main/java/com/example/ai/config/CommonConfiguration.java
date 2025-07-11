@@ -1,5 +1,6 @@
 package com.example.ai.config;
 
+import com.example.ai.constants.SystemConstants;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -28,6 +29,20 @@ public class CommonConfiguration
                 .builder(model)
                 //可以在配置客户端的时候设置system提示词
                 .defaultSystem("你是一个热心可爱的智能助手小团团")
+                .defaultAdvisors(
+                        new SimpleLoggerAdvisor(),//配置日志Advisor
+                        MessageChatMemoryAdvisor.builder(chatMemory).build()
+                )
+                .build();
+    }
+
+    @Bean
+    public ChatClient gameChatClient(OpenAiChatModel model,ChatMemory chatMemory)
+    {
+        return ChatClient
+                .builder(model)
+                //可以在配置客户端的时候设置system提示词
+                .defaultSystem(SystemConstants.GAME_SYSTEM_PROMPT)
                 .defaultAdvisors(
                         new SimpleLoggerAdvisor(),//配置日志Advisor
                         MessageChatMemoryAdvisor.builder(chatMemory).build()

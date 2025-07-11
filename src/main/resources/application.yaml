@@ -4,10 +4,10 @@ spring:
   ai:
     openai:
       base-url: https://dashscope.aliyuncs.com/compatible-mode
-      api-key: sk-a1bbb27c118e445e9926e49c1ccdbaf7
+      api-key: ${OPENAI_API_KEY}
       chat:
         options:
-          model: deepseek-r1
+          model: qwen-max-latest
           temperature: 0.8 #????????????????
 logging:
   level:
