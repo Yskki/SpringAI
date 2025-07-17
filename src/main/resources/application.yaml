@@ -1,7 +1,16 @@
 spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
   application:
     name: spring-ai
   ai:
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index-name: custom-index
+        prefix: custom-prefix
     openai:
       base-url: https://dashscope.aliyuncs.com/compatible-mode
       api-key: ${OPENAI_API_KEY}
@@ -9,6 +18,10 @@ spring:
         options:
           model: qwen-max-latest
           temperature: 0.8
+      embedding:
+        options:
+          dimensions: 1024
+          model: text-embedding-v3
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/itheima?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&allowMultiQueries=true&useServerPrepStmts=false
