@@ -6,6 +6,7 @@ import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.reader.ExtractedTextFormatter;
 import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
+import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,12 +40,22 @@ class SpringAiApplicationTests {
         //3.写入向量库
         vectorStore.add(documents);
         //4.搜索
-        List<Document> docs = vectorStore.similaritySearch("论语中教育的目的是什么?");
+        SearchRequest request = SearchRequest.builder()
+                .query("论语中教育的目的是什么")
+                .topK(1) //只要评分最高的一个
+                .similarityThreshold(0.7)//设置阈值，评分大于该阈值的才要
+                //这个可能格式不对，加上这个限制条件没有输出，因为好像没有这个file_name字段了
+                //.filterExpression("file_name == '中二知识笔记.pdf'")//后边业务复杂可能有很多文档，加这个表示只从当前文档中搜索，可以加快检索速度
+                .build();
+        List<Document> docs = vectorStore.similaritySearch(request);
+        //List<Document> docs = vectorStore.similaritySearch("论语中教育的目的是什么");
         if(docs == null){
             System.out.println("没有搜索到任何内容");
             return;
         }
         for (Document doc : docs) {
+            //这个字段确实有问题，打印出来显示的为null
+            //System.out.println(doc.getMetadata().get("fileName"));
             System.out.println(doc.getId());
             System.out.println(doc.getScore());
             System.out.println(doc.getText());
