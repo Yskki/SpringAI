@@ -1,0 +1,21 @@
+{
+  "1753018367099" : [ {
+    "messageType" : "USER",
+    "text" : "你好",
+    "metadata" : {
+      "messageType" : "USER"
+    }
+  }, {
+    "messageType" : "ASSISTANT",
+    "text" : "你好！有什么我可以帮助你的吗？",
+    "metadata" : {
+      "role" : "ASSISTANT",
+      "messageType" : "ASSISTANT",
+      "finishReason" : "STOP",
+      "refusal" : "",
+      "index" : 0,
+      "annotations" : [ ],
+      "id" : "chatcmpl-c2b3a9ce-b20e-903a-b13d-3a58017ad4a4"
+    }
+  } ]
+}

@@ -8,6 +8,7 @@ import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -31,6 +32,8 @@ public class CommonConfiguration
     {
         return ChatClient
                 .builder(model)
+                //单独给这个模块配置这个多模态模型，其他模块模型不变
+                .defaultOptions(ChatOptions.builder().model("qwen-omni-turbo").build())
                 //可以在配置客户端的时候设置system提示词
                 .defaultSystem("你是一个热心可爱的智能助手小团团")
                 .defaultAdvisors(
@@ -87,5 +90,4 @@ public class CommonConfiguration
                 )
                 .build();
     }
-
 }

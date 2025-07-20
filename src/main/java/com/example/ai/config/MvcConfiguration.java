@@ -13,6 +13,7 @@ public class MvcConfiguration implements WebMvcConfigurer
         registry.addMapping("/**")
                 .allowedOrigins("*") //允许所有的域
                 .allowedMethods("GET","POST","PUT","DELETE","OPTIONS") //允许的方法
-                .allowedHeaders("*");//允许所有请求头
+                .allowedHeaders("*")//允许所有请求头
+                .exposedHeaders("Content-Disposition");//暴露响应头
     }
 }

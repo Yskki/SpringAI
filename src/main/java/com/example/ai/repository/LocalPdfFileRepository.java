@@ -1,19 +1,15 @@
 package com.example.ai.repository;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -58,35 +54,35 @@ public class LocalPdfFileRepository implements FileRepository {
 
     //持久化相关代码
     //@PostConstruct用于标记一个方法在 Bean 初始化完成后立即执行。
-    @PostConstruct
-    private void init() {
-        //映射关系持久化
-        FileSystemResource pdfResource = new FileSystemResource("chat-pdf.properties");
-        if (pdfResource.exists()) {
-            try {
-                chatFiles.load(new BufferedReader(new InputStreamReader(pdfResource.getInputStream(), StandardCharsets.UTF_8)));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        //向量库的持久化，因为视频中用的是SimpleVectorStore
-        //不过我们用的是redis，应该没有这个问题
-        FileSystemResource vectorResource = new FileSystemResource("chat-pdf.json");
-        if (vectorResource.exists()) {
-            SimpleVectorStore simpleVectorStore = (SimpleVectorStore) vectorStore;
-            simpleVectorStore.load(vectorResource);
-        }
-    }
-
-    //@PreDestroy与 @PostConstruct 相对应，它用于标记一个方法在 Bean 被容器销毁之前自动调用
-    @PreDestroy
-    private void persistent() {
-        try {
-            chatFiles.store(new FileWriter("chat-pdf.properties"), LocalDateTime.now().toString());
-            SimpleVectorStore simpleVectorStore = (SimpleVectorStore) vectorStore;
-            simpleVectorStore.save(new File("chat-pdf.json"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @PostConstruct
+//    private void init() {
+//        //映射关系持久化
+//        FileSystemResource pdfResource = new FileSystemResource("chat-pdf.properties");
+//        if (pdfResource.exists()) {
+//            try {
+//                chatFiles.load(new BufferedReader(new InputStreamReader(pdfResource.getInputStream(), StandardCharsets.UTF_8)));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//        //向量库的持久化，因为视频中用的是SimpleVectorStore
+//        //不过我们用的是redis，应该没有这个问题
+//        FileSystemResource vectorResource = new FileSystemResource("chat-pdf.json");
+//        if (vectorResource.exists()) {
+//            SimpleVectorStore simpleVectorStore = (SimpleVectorStore) vectorStore;
+//            simpleVectorStore.load(vectorResource);
+//        }
+//    }
+//
+//    //@PreDestroy与 @PostConstruct 相对应，它用于标记一个方法在 Bean 被容器销毁之前自动调用
+//    @PreDestroy
+//    private void persistent() {
+//        try {
+//            chatFiles.store(new FileWriter("chat-pdf.properties"), LocalDateTime.now().toString());
+//            SimpleVectorStore simpleVectorStore = (SimpleVectorStore) vectorStore;
+//            simpleVectorStore.save(new File("chat-pdf.json"));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
